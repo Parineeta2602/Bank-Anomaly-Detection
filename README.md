@@ -105,42 +105,45 @@ python -m pytest tests/ -v
 
 ```
 Bank_Anamoly_Detection/
-├── artifacts/                       # Preserved trained models & calibration artifacts
-│   ├── isolation_forest.joblib      # 200-tree Isolation Forest
-│   ├── one_class_svm.joblib         # RBF One-Class SVM
-│   ├── scaler.joblib               # StandardScaler (16 features)
-│   ├── priority_settings.joblib     # Calibrated thresholds & percentile references
-│   ├── metrics_table.csv            # Test benchmark table
-│   └── test_predictions.csv.gz     # Test period benchmark (37,653 rows)
-├── backend/                         # FastAPI application
+├── artifacts/                     # Preserved trained models & calibration artifacts
+│   ├── isolation_forest.joblib    # 200-tree Isolation Forest
+│   ├── one_class_svm.joblib       # RBF One-Class SVM
+│   ├── scaler.joblib              # StandardScaler (16 features)
+│   ├── priority_settings.joblib   # Calibrated thresholds & percentile references
+│   ├── metrics_table.csv          # Test benchmark table
+│   └── test_predictions.csv.gz    # Test period benchmark (37,653 rows)
+├── backend/                       # FastAPI application
 │   ├── __init__.py
-│   ├── main.py                      # REST endpoints & SPA static mounting
-│   └── state.py                     # In-memory active dataset & pipeline state
-├── data/                            # Sample datasets
-│   ├── sample_transactions.csv      # Unlabeled sample (1,000 rows)
-│   └── sample_with_labels.csv       # Labeled test sample (2,500 rows, 14 frauds)
-├── frontend/                        # React + Vite application
-│   ├── dist/                        # Production build bundle
+│   ├── main.py                    # REST endpoints & SPA static mounting
+│   └── state.py                   # In-memory active dataset & pipeline state
+├── data/                          # Sample datasets
+│   ├── sample_transactions.csv    # Unlabeled sample (1,000 rows)
+│   └── sample_with_labels.csv     # Labeled test sample (2,500 rows, 14 frauds)
+├── frontend/                      # React + Vite application
+│   ├── dist/                      # Production build bundle
 │   ├── src/
-│   │   ├── components/              # Header, KPI cards, charts, drawer
-│   │   ├── pages/                   # Overview, Upload & Analyze, Queue, Evaluation
-│   │   ├── App.jsx                  # Main routing & state coordinator
-│   │   ├── index.css                # Polished fintech design system
+│   │   ├── components/            # Header, KPI cards, charts, drawer
+│   │   ├── pages/                 # Overview, Upload & Analyze, Queue, Evaluation
+│   │   ├── App.jsx                # Main routing & state coordinator
+│   │   ├── index.css              # Polished fintech design system
 │   │   └── main.jsx
 │   ├── package.json
 │   └── vite.config.js
-├── src/                             # Core Python domain logic (Strictly Preserved)
-│   ├── artifacts_manager.py         # Artifact loading & integrity validation
-│   ├── preprocessor.py              # Exact feature engineering & validation
-│   ├── model_scorer.py              # Isolation Forest & One-Class SVM scoring
-│   ├── priority_ranker.py           # Priority score & explanation generator
-│   └── evaluator.py                 # Evaluation metrics & Precision@K
-├── tests/                           # Unit & API test suite (16 tests)
-│   ├── test_api.py                  # FastAPI integration tests
-│   ├── test_preprocessor.py         # Schema validation & feature shapes
-│   ├── test_models.py               # Model loading & scoring
-│   ├── test_priority.py             # Priority score bounds & explanations
-│   └── test_evaluation.py           # Evaluation metrics & benchmark checks
+├── src/                           # Core Python domain logic
+│   ├── __init__.py
+│   ├── artifacts_manager.py       # Artifact loading & integrity validation
+│   ├── preprocessor.py            # Exact feature engineering & validation
+│   ├── model_scorer.py            # Isolation Forest & One-Class SVM scoring
+│   ├── priority_ranker.py         # Priority score & explanation generator
+│   ├── evaluator.py               # Evaluation metrics & Precision@K
+│   └── visualizer.py              # Visual generation and plotting utilities
+├── tests/                         # Unit & API test suite (16 tests)
+│   ├── __init__.py
+│   ├── test_api.py                # FastAPI integration tests
+│   ├── test_preprocessor.py       # Schema validation & feature shapes
+│   ├── test_models.py             # Model loading & scoring
+│   ├── test_priority.py           # Priority score bounds & explanations
+│   └── test_evaluation.py         # Evaluation metrics & benchmark checks
 ├── requirements.txt
 └── README.md
 ```
