@@ -1,0 +1,6 @@
+,seconds
+IsolationForest_train,2.9622527330002413
+OneClassSVM_train,0.11376900499999465
+IsolationForest_score_test,1.216135961999953
+OneClassSVM_score_test,0.4445307729997694
+Priority_score_test,0.039851820999956544

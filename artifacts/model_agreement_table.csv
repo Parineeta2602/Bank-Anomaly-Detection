@@ -1,0 +1,5 @@
+group,transactions,frauds,fraud_rate_%
+neither,37547,7,0.019
+IF only,55,0,0.0
+SVM only,23,4,17.391
+both models,28,3,10.714
